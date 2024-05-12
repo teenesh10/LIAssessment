@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Calculation</title>
+</head>
+<body>
+
+<table border="1">
+  <caption>Table 1</caption>
+  <thead>
+    <tr>
+      <th>Index #</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody id="table1Body">
+  </tbody>
+</table>
+
+<table border="1">
+  <caption>Table 2</caption>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody id="table2Body">
+  </tbody>
+</table>
+
+<script>
+  // Table 1 data
+  const table1Data = {
+    A1: 41, A2: 18, A3: 21, A4: 63, A5: 2, A6: 53, A7: 5, A8: 57, A9: 60, A10: 93,
+    A11: 28, A12: 3, A13: 90, A14: 39, A15: 80, A16: 88, A17: 49, A18: 60, A19: 26, A20: 28
+  };
+
+  // Calculate Table 2 values
+  const alphaValue = table1Data.A5 + table1Data.A20;
+  const betaValue = table1Data.A15 / table1Data.A7;
+  const charlieValue = table1Data.A13 * table1Data.A12;
+
+  // Display Table 1
+  const table1Body = document.getElementById('table1Body');
+  for (const index in table1Data) {
+    const row = `<tr><td>${index}</td><td>${table1Data[index]}</td></tr>`;
+    table1Body.innerHTML += row;
+  }
+
+  // Display Table 2
+  const table2Body = document.getElementById('table2Body');
+  const table2Rows = [
+    `<tr><td>Alpha</td><td>${alphaValue}</td></tr>`,
+    `<tr><td>Beta</td><td>${betaValue}</td></tr>`,
+    `<tr><td>Charlie</td><td>${charlieValue}</td></tr>`
+  ];
+  table2Body.innerHTML = table2Rows.join('');
+</script>
+
+</body>
+</html>
